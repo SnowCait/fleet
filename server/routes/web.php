@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,3 +20,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('login/twitter', [LoginController::class, 'redirectToProvider']);
+Route::get('login/twitter/callback', [LoginController::class, 'handleProviderCallback']);
